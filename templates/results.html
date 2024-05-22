@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cell Data Results</title>
+</head>
+<body>
+    <h1>Cell Data Search Results</h1>
+    {% if cell1 %}
+    <p>Cell 1 Value: {{ cell1 }}</p>
+    <p>Cell 2 Value: {{ cell2 }}</p>
+    <p>Cell 3 Value: {{ cell3 }}</p>
+    {% else %}
+        <p>Error: Value '{{ data_name }}' not found in the first column.</p>
+    {% endif %}
+</body>
+</html>

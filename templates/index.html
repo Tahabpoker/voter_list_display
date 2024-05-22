@@ -1,0 +1,65 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data from Excel</title>
+</head>
+<body>
+    <h1>Data from Excel</h1>
+    <form action="/" method="get">
+        <label for="data_name">Enter a value:</label>
+        <input type="text" id="data_name" name="data_name">
+        <input type="submit" value="Search">
+    </form>
+    <p>Cell 1 value: {{ cell1_value }}</p>
+    <p>Cell 2 value: {{ cell2_value }}</p>
+    <p>Cell 3 value: {{ cell3_value }}</p>
+
+    <!-- Add buttons for selecting data column -->
+    <form action="/" method="get">
+        <input type="hidden" name="data_name" value="{{ request.args.get('data_name') }}">
+        <button type="submit" name="data_column" value="Bar">Search by Cell 1</button>
+        <button type="submit" name="data_column" value="text">Search by Cell 2</button>
+        <button type="submit" name="data_column" value="Foo">Search by Cell 3</button>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- templates/index.html -->
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data from Excel</title>
+</head>
+<body>
+    <h1>Data from Excel</h1>
+    <form action="/" method="get">
+        <label for="data_name">Enter a value:</label>
+        <input type="text" id="data_name" name="data_name">
+        <input type="submit" value="Submit">
+    </form>
+    <p>Cell 1 value: {{ cell1_value }}</p>
+    <p>Cell 2 value: {{ cell2_value }}</p>
+    <p>Cell 3 value: {{ cell3_value }}</p>
+</body>
+</html> -->
