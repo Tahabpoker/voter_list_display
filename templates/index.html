@@ -1,28 +1,85 @@
-<!-- templates/index.html -->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data from Excel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 16px;
+            color: #666;
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        p {
+            font-size: 20px;
+            color: #666;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Data from Excel</h1>
-    <form action="/" method="get">
-        <label for="data_name">Enter a value:</label>
-        <input type="text" id="data_name" name="data_name">
-        <input type="submit" value="Search">
-    </form>
-    <p>Cell 1 value: {{ cell1_value }}</p>
-    <p>Cell 2 value: {{ cell2_value }}</p>
-    <p>Cell 3 value: {{ cell3_value }}</p>
-
-    <!-- Add buttons for selecting data column -->
-    <form action="/" method="get">
-        <input type="hidden" name="data_name" value="{{ request.args.get('data_name') }}">
-        <button type="submit" name="data_column" value="Bar">Search by Cell 1</button>
-        <button type="submit" name="data_column" value="text">Search by Cell 2</button>
-        <button type="submit" name="data_column" value="Foo">Search by Cell 3</button>
-    </form>
+    <div class="container">
+        <h1>Data from Excel</h1>
+        <form action="/" method="post">
+            <label for="data_name">Enter a value:</label>
+            <input type="text" id="data_name" name="data_name">
+            <label for="data_column">Select a column:</label>
+            <select id="data_column" name="data_column">
+                <option value="Bar">Cell 1</option>
+                <option value="text">Cell 2</option>
+                <option value="Foo">Cell 3</option>
+            </select>
+            <input type="submit" value="Search">
+        </form>
+        {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+        <p>Cell 1 value: {{ cell1_value }}</p>
+        <p>Cell 2 value: {{ cell2_value }}</p>
+        <p>Cell 3 value: {{ cell3_value }}</p>
+    </div>
 </body>
 </html>
 
@@ -44,8 +101,11 @@
 
 
 
-<!-- templates/index.html -->
-<!-- 
+
+
+
+<!--
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,10 +113,53 @@
 </head>
 <body>
     <h1>Data from Excel</h1>
-    <form action="/" method="get">
+    <form action="/" method="post">
         <label for="data_name">Enter a value:</label>
         <input type="text" id="data_name" name="data_name">
-        <input type="submit" value="Submit">
+        <select id="data_column" name="data_column">
+            <option value="Bar">Cell 1</option>
+            <option value="text">Cell 2</option>
+            <option value="Foo">Cell 3</option>
+        </select>
+        <input type="submit" value="Search">
+    </form>
+    <p>Cell 1 value: {{ cell1_value }}</p>
+    <p>Cell 2 value: {{ cell2_value }}</p>
+    <p>Cell 3 value: {{ cell3_value }}</p>
+
+    <!-- Display error messages -->
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>
+ -->
+
+
+
+
+
+
+
+
+<!-- templates/index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data from Excel</title>
+</head>
+<body>
+    <h1>Data from Excel</h1>
+    <form action="/" method="post">
+        <label for="data_name">Enter a value:</label>
+        <input type="text" id="data_name" name="data_name">
+        <select id="data_column" name="data_column">
+            <option value="Bar">Cell 1</option>
+            <option value="text">Cell 2</option>
+            <option value="Foo">Cell 3</option>
+        </select>
+        <input type="submit" value="Search">
     </form>
     <p>Cell 1 value: {{ cell1_value }}</p>
     <p>Cell 2 value: {{ cell2_value }}</p>
