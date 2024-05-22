@@ -39,8 +39,8 @@ def index():
                 error_message = "Value '{}' not found in the specified column '{}'".format(data_name, data_column)
                 return render_template('index.html', error_message=error_message)
         else:
-              error_message = "Please provide both a value and select a column."
-#             return render_template('index.html', error_message=error_message)
+            error_message = "Please provide both a value and select a column."
+            return render_template('index.html', error_message=error_message)
 
     # User accessed the page (GET request)
     return render_template('index.html', cell1_value="", cell2_value="", cell3_value="")
