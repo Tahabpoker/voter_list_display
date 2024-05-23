@@ -16,7 +16,7 @@ def index():
         data_name = request.form.get('data_name')
         data_column = request.form.get('data_column')
 
-        if data_name and data_column:
+        if data_name and (data_column == "Bar" or data_column == "Foo" ) :
             # Convert search value and column values to lowercase
             data_name_lower = data_name.lower()
             df_column_lower = df[data_column].str.lower()
@@ -38,6 +38,16 @@ def index():
             else:
                 error_message = "Value '{}' not found in the specified column '{}'".format(data_name, data_column)
                 return render_template('index.html', error_message=error_message)
+            
+        elif data_name and data_column == "text":
+            data_name_lower = data_name.lower()
+            df_column_lower = df[data_column].str.lower()
+
+            apple_rows = df[df_column_lower == data_name_lower]
+            # rows_to_html = apple_rows.to_html()
+
+            return render_template('print_excel_table.html',  tables=[apple_rows.to_html(classes='data', header="true")])
+
         else:
             error_message = "Please provide both a value and select a column."
             return render_template('index.html', error_message=error_message)

@@ -70,7 +70,7 @@
                 <option value="Bar">Cell 1</option>
                 <option value="text">Cell 2</option>
                 <option value="Foo">Cell 3</option>
-            </select>
+            </select> 
             <input type="submit" value="Search">
         </form>
         {% if error_message %}
@@ -79,6 +79,10 @@
         <p>Cell 1 value: {{ cell1_value }}</p>
         <p>Cell 2 value: {{ cell2_value }}</p>
         <p>Cell 3 value: {{ cell3_value }}</p>
+
+        {% for table in tables %}
+        {{ table|safe }}
+        {% endfor %}
     </div>
 </body>
 </html>
@@ -127,7 +131,7 @@
     <p>Cell 2 value: {{ cell2_value }}</p>
     <p>Cell 3 value: {{ cell3_value }}</p>
 
-    <!-- Display error messages -->
+     
     {% if error_message %}
         <p style="color: red;">{{ error_message }}</p>
     {% endif %}

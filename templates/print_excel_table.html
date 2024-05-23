@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Excel Table</title>
+</head>
+<style>
+    .tr {
+        padding: 8px;
+    }
+</style>
+<body>
+    <div >
+        <table style="padding: 100px;">
+    {% for table in tables %}
+    <tr>
+        {{ table|safe }}
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</body>
+</html>
