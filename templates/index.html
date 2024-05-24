@@ -67,106 +67,35 @@
             <input type="text" id="data_name" name="data_name">
             <label for="data_column">Select a column:</label>
             <select id="data_column" name="data_column">
-                <option value="Bar">Cell 1</option>
-                <option value="text">Cell 2</option>
-                <option value="Foo">Cell 3</option>
+                <option value="Sr No">Voter Serial Number</option>
+                <option value="List No">List No</option>
+                <option value="Electoral Name">Electroal Name</option>
+                <option value="Relative Name">Relative Name</option>
+                <option value="Address">Address</option>
+                <option value="School"> School Or College</option>
+                <option value="Age">Age</option>
+                <option value="Gender">Gender</option>
+                <option value="Epic No">Epic No</option>
             </select> 
             <input type="submit" value="Search">
         </form>
         {% if error_message %}
             <p style="color: red;">{{ error_message }}</p>
         {% endif %}
-        <p>Cell 1 value: {{ cell1_value }}</p>
-        <p>Cell 2 value: {{ cell2_value }}</p>
-        <p>Cell 3 value: {{ cell3_value }}</p>
-
+        <p>{{ cell1_value }}</p>
+        <p>{{ cell2_value }}</p>
+        <p>{{ cell3_value }}</p>
+        <p>{{ cell4_value }}</p>
+        <p>{{ cell5_value }}</p>
+        <p>{{ cell6_value }}</p>
+        <p>{{ cell7_value }}</p>
+        <p>{{ cell8_value }}</p>
+        <p>{{ cell9_value }}</p>
+       
+<!-- 
         {% for table in tables %}
         {{ table|safe }}
-        {% endfor %}
+        {% endfor %} -->
     </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Data from Excel</title>
-</head>
-<body>
-    <h1>Data from Excel</h1>
-    <form action="/" method="post">
-        <label for="data_name">Enter a value:</label>
-        <input type="text" id="data_name" name="data_name">
-        <select id="data_column" name="data_column">
-            <option value="Bar">Cell 1</option>
-            <option value="text">Cell 2</option>
-            <option value="Foo">Cell 3</option>
-        </select>
-        <input type="submit" value="Search">
-    </form>
-    <p>Cell 1 value: {{ cell1_value }}</p>
-    <p>Cell 2 value: {{ cell2_value }}</p>
-    <p>Cell 3 value: {{ cell3_value }}</p>
-
-     
-    {% if error_message %}
-        <p style="color: red;">{{ error_message }}</p>
-    {% endif %}
-</body>
-</html>
- -->
-
-
-
-
-
-
-
-
-<!-- templates/index.html
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Data from Excel</title>
-</head>
-<body>
-    <h1>Data from Excel</h1>
-    <form action="/" method="post">
-        <label for="data_name">Enter a value:</label>
-        <input type="text" id="data_name" name="data_name">
-        <select id="data_column" name="data_column">
-            <option value="Bar">Cell 1</option>
-            <option value="text">Cell 2</option>
-            <option value="Foo">Cell 3</option>
-        </select>
-        <input type="submit" value="Search">
-    </form>
-    <p>Cell 1 value: {{ cell1_value }}</p>
-    <p>Cell 2 value: {{ cell2_value }}</p>
-    <p>Cell 3 value: {{ cell3_value }}</p>
-</body>
-</html> -->
