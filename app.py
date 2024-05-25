@@ -7,6 +7,7 @@ def search(data_name, data_column, df):
     data_name_lower = data_name.lower()
     df_column_lower = df[data_column].str.lower()
 
+    apple_rows = None
     apple_rows = df[df_column_lower == data_name_lower]
     return apple_rows
 
@@ -62,81 +63,93 @@ def index():
         data_column = request.form.get("data_column")
         vidhan_Sabha = request.form.get("vidhan_Sabha")
 
-        match vidhan_Sabha:
-            case "152":
-                tables = search(data_name, data_column,df_152)
-            case "153":
-                tables = search(data_name, data_column, df_153)
-            case "154":
-                tables = search(data_name, data_column, df_154)
-            case "155":
-                tables = search(data_name, data_column, df_155)
-            case "156":
-                tables = search(data_name, data_column, df_156)
-            case "157":
-                tables = search(data_name, data_column, df_157)
-            case "158":
-                tables = search(data_name, data_column, df_158)
-            case "159":
-                tables = search(data_name, data_column, df_159)
-            case "160":
-                tables = search(data_name, data_column, df_160)
-            case "161":
-                tables = search(data_name, data_column, df_161)
-            case "162":
-                tables = search(data_name, data_column, df_162)
-            case "163":
-                tables = search(data_name, data_column, df_163)
-            case "164":
-                tables = search(data_name, data_column, df_164)
-            case "165":
-                tables = search(data_name, data_column, df_165)
-            case "166":
-                tables = search(data_name, data_column, df_166)
-            case "167":
-                tables = search(data_name, data_column, df_167)
-            case "168":
-                tables = search(data_name, data_column, df_168)
-            case "169":
-                tables = search(data_name, data_column, df_169)
-            case "170":
-                tables = search(data_name, data_column, df_170)
-            case "171":
-                tables = search(data_name, data_column, df_171)
-            case "172":
-                tables = search(data_name, data_column, df_172)
-            case "173":
-                tables = search(data_name, data_column, df_173)
-            case "174":
-                tables = search(data_name, data_column, df_174)
-            case "175":
-                tables = search(data_name, data_column, df_175)
-            case "176":
-                tables = search(data_name, data_column, df_176)
-            case "177":
-                tables = search(data_name, data_column, df_177)
-            case "178":
-                tables = search(data_name, data_column, df_178)
-            case "179":
-                tables = search(data_name, data_column, df_179)
-            case "180":
-                tables = search(data_name, data_column, df_180)
-            case "181":
-                tables = search(data_name, data_column, df_181)
-            case "182":
-                tables = search(data_name, data_column, df_182)
-            case "183":
-                tables = search(data_name, data_column, df_183)
-            case "184":
-                tables = search(data_name, data_column, df_184)
-            case "185":
-                tables = search(data_name, data_column, df_185)
-            case "186":
-                tables = search(data_name, data_column, df_186)
-            case "187":
-                tables = search(data_name, data_column, df_187)
+        if data_name and data_column != "None":
 
-        return render_template("print_excel_table.html", tables = [tables.to_html(classes='data', header="true")])
+
+            match vidhan_Sabha:
+                case "152":
+                    tables = search(data_name, data_column,df_152)
+                case "153":
+                    tables = search(data_name, data_column, df_153)
+                case "154":
+                    tables = search(data_name, data_column, df_154)
+                case "155":
+                    tables = search(data_name, data_column, df_155)
+                case "156":
+                    tables = search(data_name, data_column, df_156)
+                case "157":
+                    tables = search(data_name, data_column, df_157)
+                case "158":
+                    tables = search(data_name, data_column, df_158)
+                case "159":
+                    tables = search(data_name, data_column, df_159)
+                case "160":
+                    tables = search(data_name, data_column, df_160)
+                case "161":
+                    tables = search(data_name, data_column, df_161)
+                case "162":
+                    tables = search(data_name, data_column, df_162)
+                case "163":
+                    tables = search(data_name, data_column, df_163)
+                case "164":
+                    tables = search(data_name, data_column, df_164)
+                case "165":
+                    tables = search(data_name, data_column, df_165)
+                case "166":
+                    tables = search(data_name, data_column, df_166)
+                case "167":
+                    tables = search(data_name, data_column, df_167)
+                case "168":
+                    tables = search(data_name, data_column, df_168)
+                case "169":
+                    tables = search(data_name, data_column, df_169)
+                case "170":
+                    tables = search(data_name, data_column, df_170)
+                case "171":
+                    tables = search(data_name, data_column, df_171)
+                case "172":
+                    tables = search(data_name, data_column, df_172)
+                case "173":
+                    tables = search(data_name, data_column, df_173)
+                case "174":
+                    tables = search(data_name, data_column, df_174)
+                case "175":
+                    tables = search(data_name, data_column, df_175)
+                case "176":
+                    tables = search(data_name, data_column, df_176)
+                case "177":
+                    tables = search(data_name, data_column, df_177)
+                case "178":
+                    tables = search(data_name, data_column, df_178)
+                case "179":
+                    tables = search(data_name, data_column, df_179)
+                case "180":
+                    tables = search(data_name, data_column, df_180)
+                case "181":
+                    tables = search(data_name, data_column, df_181)
+                case "182":
+                    tables = search(data_name, data_column, df_182)
+                case "183":
+                    tables = search(data_name, data_column, df_183)
+                case "184":
+                    tables = search(data_name, data_column, df_184)
+                case "185":
+                    tables = search(data_name, data_column, df_185)
+                case "186":
+                    tables = search(data_name, data_column, df_186)
+                case "187":
+                    tables = search(data_name, data_column, df_187)
+
+            if not len(tables): # \
+                error_message = "Value '{}' not found in the specified column '{}'".format(data_name, data_column)
+                return render_template("index.html", error_message = error_message)
+
+            return render_template("index.html", tables = [tables.to_html(classes='data', header="true")])
+        
+        else:
+            error_message = "Please provide both a value and select a column."
+            return render_template('index.html', error_message=error_message)
+
     return render_template("index.html")
 
 if __name__ == "__main__":
@@ -173,8 +186,8 @@ if __name__ == "__main__":
 #                 # Render the HTML template with the cell values
 #                 return render_template('index.html', cell1_value=cell1_value, cell2_value=cell2_value, cell3_value=cell3_value, cell4_value=cell4_value, cell5_value=cell5_value)
 #             else:
-#                 error_message = "Value '{}' not found in the specified column '{}'".format(data_name, data_column)
-#                 return render_template('index.html', error_message=error_message)
+                # error_message = "Value '{}' not found in the specified column '{}'".format(data_name, data_column)
+                # return render_template('index.html', error_message=error_message)
 
 #         elif data_name and (data_column == "Sr No" or "List No" or "Gender" or "Age" or "Address" or "School"):
 #             data_name_lower = data_name.lower()

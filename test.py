@@ -4,7 +4,7 @@ df_152 = pd.read_excel("./static/152.xlsx")
 
 vidhan_Sabha = "152"
 
-data_name = "XWC1569359"
+data_name = "jijiji"
 data_column = "Epic No"
 
 
@@ -18,6 +18,15 @@ def search(data_name, data_column, df):
 
 match vidhan_Sabha:
     case "152": 
-        print(search(data_name, data_column, df_152))
-        
+        tables = search(data_name, data_column, df_152)
+        if not len(tables):
+            print("empty")
+        else:
+            print("full")
+
+data_columns = ["Epic No", "Sr No", "School"]
+
+
+'''
+'''
 

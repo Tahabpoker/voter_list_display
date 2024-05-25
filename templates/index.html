@@ -54,9 +54,28 @@
         }
         p {
             font-size: 20px;
-            color: #666;
+            color: #030303;
             margin: 0;
         }
+        th{
+            text-align:left;
+            padding: 10px;
+            margin-bottom: 40px;
+            font-size: 0.9em;
+            border-bottom: 1px solid #C8C8C8;
+            border-collapse: collapse;
+            background-color: #add8e6;
+            color: white;
+        }  
+        td {
+            text-align:left;
+            padding: 10px;
+            margin-bottom: 40px;
+            font-size: 0.9em;
+            border-bottom: 1px solid #C8C8C8;
+            border-collapse: collapse;
+
+      }
     </style>
 </head>
 <body>
@@ -67,6 +86,7 @@
             <input type="text" id="data_name" name="data_name">
             <label for="data_column">Select a column:</label>
             <select id="data_column" name="data_column">
+                <option value="None">Select a Column Name</option>
                 <option value="Electoral Name">Electroal Name</option>
                 <option value="Relative Name">Relative Name</option>
                 <option value="Address">Address</option>
@@ -120,20 +140,13 @@
         {% if error_message %}
             <p style="color: red;">{{ error_message }}</p>
         {% endif %}
-        <p>{{ cell1_value }}</p>
-        <p>{{ cell2_value }}</p>
-        <p>{{ cell3_value }}</p>
-        <p>{{ cell4_value }}</p>
-        <p>{{ cell5_value }}</p>
-        <p>{{ cell6_value }}</p>
-        <p>{{ cell7_value }}</p>
-        <p>{{ cell8_value }}</p>
-        <p>{{ cell9_value }}</p>
-       
-<!-- 
-        {% for table in tables %}
-        {{ table|safe }}
-        {% endfor %} -->
+        <table>
+            {%if tables%}
+            {%for table in tables%}
+            {{table|safe}}
+            {%endfor%}
+            {%endif%}
+            </table>
     </div>
 </body>
 </html>
