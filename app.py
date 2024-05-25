@@ -2,43 +2,52 @@
 import pandas as pd  # type: ignore
 from flask import Flask, render_template, request  # type: ignore
 
+
+def search(data_name, data_column, df):
+    data_name_lower = data_name.lower()
+    df_column_lower = df[data_column].str.lower()
+
+    apple_rows = df[df_column_lower == data_name_lower]
+    return apple_rows
+
+
 # Read the Excel file into a data frame
-df_152 = pd.read_excel("./static/152.xlsx")
-df_153 = pd.read_excel("./static/153.xlsx")
-df_154 = pd.read_excel("./static/154.xlsx")
-df_155 = pd.read_excel("./static/155.xlsx")
-df_156 = pd.read_excel("./static/156.xlsx")
-df_157 = pd.read_excel("./static/157.xlsx")
-df_158 = pd.read_excel("./static/158.xlsx")
-df_159 = pd.read_excel("./static/159.xlsx")
-df_160 = pd.read_excel("./static/160.xlsx")
-df_161 = pd.read_excel("./static/161.xlsx")
-df_162 = pd.read_excel("./static/162.xlsx")
-df_163 = pd.read_excel("./static/163.xlsx")
-df_164 = pd.read_excel("./static/164.xlsx")
-df_165 = pd.read_excel("./static/165.xlsx")
-df_166 = pd.read_excel("./static/166.xlsx")
-df_167 = pd.read_excel("./static/167.xlsx")
-df_168 = pd.read_excel("./static/168.xlsx")
-df_169 = pd.read_excel("./static/169.xlsx")
-df_170 = pd.read_excel("./static/170.xlsx")
-df_171 = pd.read_excel("./static/171.xlsx")
-df_172 = pd.read_excel("./static/172.xlsx")
-df_173 = pd.read_excel("./static/173.xlsx")
-df_174 = pd.read_excel("./static/174.xlsx")
-df_175 = pd.read_excel("./static/175.xlsx")
-df_176 = pd.read_excel("./static/176.xlsx")
-df_177 = pd.read_excel("./static/177.xlsx")
-df_178 = pd.read_excel("./static/178.xlsx")
-df_179 = pd.read_excel("./static/179.xlsx")
-df_180 = pd.read_excel("./static/180.xlsx")
-df_181 = pd.read_excel("./static/181.xlsx")
-df_182 = pd.read_excel("./static/182.xlsx")
-df_183 = pd.read_excel("./static/183.xlsx")
-df_184 = pd.read_excel("./static/184.xlsx")
-df_185 = pd.read_excel("./static/185.xlsx")
-df_186 = pd.read_excel("./static/186.xlsx")
-df_187 = pd.read_excel("./static/187.xlsx")
+df_153 = pd.read_excel("./vidhan_sabha/153.xlsx")
+df_154 = pd.read_excel("./vidhan_sabha/154.xlsx")
+df_152 = pd.read_excel("./vidhan_sabha/152.xlsx")
+df_155 = pd.read_excel("./vidhan_sabha/155.xlsx")
+df_156 = pd.read_excel("./vidhan_sabha/156.xlsx")
+df_157 = pd.read_excel("./vidhan_sabha/157.xlsx")
+df_158 = pd.read_excel("./vidhan_sabha/158.xlsx")
+df_159 = pd.read_excel("./vidhan_sabha/159.xlsx")
+df_160 = pd.read_excel("./vidhan_sabha/160.xlsx")
+df_161 = pd.read_excel("./vidhan_sabha/161.xlsx")
+df_162 = pd.read_excel("./vidhan_sabha/162.xlsx")
+df_163 = pd.read_excel("./vidhan_sabha/163.xlsx")
+df_164 = pd.read_excel("./vidhan_sabha/164.xlsx")
+df_165 = pd.read_excel("./vidhan_sabha/165.xlsx")
+df_166 = pd.read_excel("./vidhan_sabha/166.xlsx")
+df_167 = pd.read_excel("./vidhan_sabha/167.xlsx")
+df_168 = pd.read_excel("./vidhan_sabha/168.xlsx")
+df_169 = pd.read_excel("./vidhan_sabha/169.xlsx")
+df_170 = pd.read_excel("./vidhan_sabha/170.xlsx")
+df_171 = pd.read_excel("./vidhan_sabha/171.xlsx")
+df_172 = pd.read_excel("./vidhan_sabha/172.xlsx")
+df_173 = pd.read_excel("./vidhan_sabha/173.xlsx")
+df_174 = pd.read_excel("./vidhan_sabha/174.xlsx")
+df_175 = pd.read_excel("./vidhan_sabha/175.xlsx")
+df_176 = pd.read_excel("./vidhan_sabha/176.xlsx")
+df_177 = pd.read_excel("./vidhan_sabha/177.xlsx")
+df_178 = pd.read_excel("./vidhan_sabha/178.xlsx")
+df_179 = pd.read_excel("./vidhan_sabha/179.xlsx")
+df_180 = pd.read_excel("./vidhan_sabha/180.xlsx")
+df_181 = pd.read_excel("./vidhan_sabha/181.xlsx")
+df_182 = pd.read_excel("./vidhan_sabha/182.xlsx")
+df_183 = pd.read_excel("./vidhan_sabha/183.xlsx")
+df_184 = pd.read_excel("./vidhan_sabha/184.xlsx")
+df_185 = pd.read_excel("./vidhan_sabha/185.xlsx")
+df_186 = pd.read_excel("./vidhan_sabha/186.xlsx")
+df_187 = pd.read_excel("./vidhan_sabha/187.xlsx")
 
 
 # Flask constructor
@@ -47,87 +56,88 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    # user submitted form
-    data_name = request.form.get("data_name")
-    data_column = request.form.get("data_column")
-    vidhan_Sabha = request.form.get("vidhan_Sabha")
+    if request.method == 'POST':
+        # user submitted form
+        data_name = request.form.get("data_name")
+        data_column = request.form.get("data_column")
+        vidhan_Sabha = request.form.get("vidhan_Sabha")
 
-    match vidhan_Sabha:
-        case "152":
-            vidhan_Sabha = 152
-        case "153":
-            vidhan_Sabha = 153
-        case "154":
-            vidhan_Sabha = 154
-        case "155":
-            vidhan_Sabha = 155
-        case "156":
-            vidhan_Sabha = 156
-        case "157":
-            vidhan_Sabha = 157
-        case "158":
-            vidhan_Sabha = 158
-        case "159":
-            vidhan_Sabha = 159
-        case "160":
-            vidhan_Sabha = 160
-        case "161":
-            vidhan_Sabha = 161
-        case "162":
-            vidhan_Sabha = 152
-        case "163":
-            vidhan_Sabha = 153
-        case "164":
-            vidhan_Sabha = 154
-        case "165":
-            vidhan_Sabha = 155
-        case "166":
-            vidhan_Sabha = 156
-        case "167":
-            vidhan_Sabha = 157
-        case "168":
-            vidhan_Sabha = 158
-        case "169":
-            vidhan_Sabha = 159
-        case "160":
-            vidhan_Sabha = 160
-        case "171":
-            vidhan_Sabha = 161
-        case "172":
-            vidhan_Sabha = 152
-        case "173":
-            vidhan_Sabha = 153
-        case "174":
-            vidhan_Sabha = 154
-        case "175":
-            vidhan_Sabha = 155
-        case "176":
-            vidhan_Sabha = 156
-        case "177":
-            vidhan_Sabha = 157
-        case "178":
-            vidhan_Sabha = 158
-        case "179":
-            vidhan_Sabha = 159
-        case "180":
-            vidhan_Sabha = 160
-        case "181":
-            vidhan_Sabha = 161
-        case "182":
-            vidhan_Sabha = 152
-        case "183":
-            vidhan_Sabha = 153
-        case "184":
-            vidhan_Sabha = 154
-        case "185":
-            vidhan_Sabha = 155
-        case "186":
-            vidhan_Sabha = 156
-        case "187":
-            vidhan_Sabha = 157
+        match vidhan_Sabha:
+            case "152":
+                tables = search(data_name, data_column,df_152)
+            case "153":
+                vidhan_Sabha = 153
+            case "154":
+                vidhan_Sabha = 154
+            case "155":
+                vidhan_Sabha = 155
+            case "156":
+                vidhan_Sabha = 156
+            case "157":
+                vidhan_Sabha = 157
+            case "158":
+                vidhan_Sabha = 158
+            case "159":
+                vidhan_Sabha = 159
+            case "160":
+                vidhan_Sabha = 160
+            case "161":
+                vidhan_Sabha = 161
+            case "162":
+                vidhan_Sabha = 152
+            case "163":
+                vidhan_Sabha = 153
+            case "164":
+                vidhan_Sabha = 154
+            case "165":
+                vidhan_Sabha = 155
+            case "166":
+                vidhan_Sabha = 156
+            case "167":
+                vidhan_Sabha = 157
+            case "168":
+                vidhan_Sabha = 158
+            case "169":
+                vidhan_Sabha = 159
+            case "160":
+                vidhan_Sabha = 160
+            case "171":
+                vidhan_Sabha = 161
+            case "172":
+                vidhan_Sabha = 152
+            case "173":
+                vidhan_Sabha = 153
+            case "174":
+                vidhan_Sabha = 154
+            case "175":
+                vidhan_Sabha = 155
+            case "176":
+                vidhan_Sabha = 156
+            case "177":
+                vidhan_Sabha = 157
+            case "178":
+                vidhan_Sabha = 158
+            case "179":
+                vidhan_Sabha = 159
+            case "180":
+                vidhan_Sabha = 160
+            case "181":
+                vidhan_Sabha = 161
+            case "182":
+                vidhan_Sabha = 152
+            case "183":
+                vidhan_Sabha = 153
+            case "184":
+                vidhan_Sabha = 154
+            case "185":
+                vidhan_Sabha = 155
+            case "186":
+                vidhan_Sabha = 156
+            case "187":
+                vidhan_Sabha = 157
 
+        return render_template("print_excel_table.html", tables = [tables.to_html(classes='data', header="true")])
     return render_template("index.html")
-
 
 if __name__ == "__main__":
     app.run(debug=True)
