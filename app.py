@@ -66,75 +66,75 @@ def index():
             case "152":
                 tables = search(data_name, data_column,df_152)
             case "153":
-                vidhan_Sabha = 153
+                tables = search(data_name, data_column, df_153)
             case "154":
-                vidhan_Sabha = 154
+                tables = search(data_name, data_column, df_154)
             case "155":
-                vidhan_Sabha = 155
+                tables = search(data_name, data_column, df_155)
             case "156":
-                vidhan_Sabha = 156
+                tables = search(data_name, data_column, df_156)
             case "157":
-                vidhan_Sabha = 157
+                tables = search(data_name, data_column, df_157)
             case "158":
-                vidhan_Sabha = 158
+                tables = search(data_name, data_column, df_158)
             case "159":
-                vidhan_Sabha = 159
+                tables = search(data_name, data_column, df_159)
             case "160":
-                vidhan_Sabha = 160
+                tables = search(data_name, data_column, df_160)
             case "161":
-                vidhan_Sabha = 161
+                tables = search(data_name, data_column, df_161)
             case "162":
-                vidhan_Sabha = 152
+                tables = search(data_name, data_column, df_162)
             case "163":
-                vidhan_Sabha = 153
+                tables = search(data_name, data_column, df_163)
             case "164":
-                vidhan_Sabha = 154
+                tables = search(data_name, data_column, df_164)
             case "165":
-                vidhan_Sabha = 155
+                tables = search(data_name, data_column, df_165)
             case "166":
-                vidhan_Sabha = 156
+                tables = search(data_name, data_column, df_166)
             case "167":
-                vidhan_Sabha = 157
+                tables = search(data_name, data_column, df_167)
             case "168":
-                vidhan_Sabha = 158
+                tables = search(data_name, data_column, df_168)
             case "169":
-                vidhan_Sabha = 159
-            case "160":
-                vidhan_Sabha = 160
+                tables = search(data_name, data_column, df_169)
+            case "170":
+                tables = search(data_name, data_column, df_170)
             case "171":
-                vidhan_Sabha = 161
+                tables = search(data_name, data_column, df_171)
             case "172":
-                vidhan_Sabha = 152
+                tables = search(data_name, data_column, df_172)
             case "173":
-                vidhan_Sabha = 153
+                tables = search(data_name, data_column, df_173)
             case "174":
-                vidhan_Sabha = 154
+                tables = search(data_name, data_column, df_174)
             case "175":
-                vidhan_Sabha = 155
+                tables = search(data_name, data_column, df_175)
             case "176":
-                vidhan_Sabha = 156
+                tables = search(data_name, data_column, df_176)
             case "177":
-                vidhan_Sabha = 157
+                tables = search(data_name, data_column, df_177)
             case "178":
-                vidhan_Sabha = 158
+                tables = search(data_name, data_column, df_178)
             case "179":
-                vidhan_Sabha = 159
+                tables = search(data_name, data_column, df_179)
             case "180":
-                vidhan_Sabha = 160
+                tables = search(data_name, data_column, df_180)
             case "181":
-                vidhan_Sabha = 161
+                tables = search(data_name, data_column, df_181)
             case "182":
-                vidhan_Sabha = 152
+                tables = search(data_name, data_column, df_182)
             case "183":
-                vidhan_Sabha = 153
+                tables = search(data_name, data_column, df_183)
             case "184":
-                vidhan_Sabha = 154
+                tables = search(data_name, data_column, df_184)
             case "185":
-                vidhan_Sabha = 155
+                tables = search(data_name, data_column, df_185)
             case "186":
-                vidhan_Sabha = 156
+                tables = search(data_name, data_column, df_186)
             case "187":
-                vidhan_Sabha = 157
+                tables = search(data_name, data_column, df_187)
 
         return render_template("print_excel_table.html", tables = [tables.to_html(classes='data', header="true")])
     return render_template("index.html")
