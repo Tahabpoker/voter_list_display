@@ -66,6 +66,7 @@
             border-collapse: collapse;
             background-color: #add8e6;
             color: white;
+            
         }  
         td {
             text-align:left;
@@ -75,6 +76,9 @@
             border-bottom: 1px solid #C8C8C8;
             border-collapse: collapse;
 
+      }
+      .table {
+        width: 100%;
       }
     </style>
 </head>
@@ -140,13 +144,16 @@
         {% if error_message %}
             <p style="color: red;">{{ error_message }}</p>
         {% endif %}
-        <table>
-            {%if tables%}
-            {%for table in tables%}
-            {{table|safe}}
-            {%endfor%}
-            {%endif%}
-            </table>
     </div>
+        <div style="overflow-x: auto; ;">
+            <table>
+                {%if tables%}
+                {%for table in tables%}
+                {{table|safe}}
+                {%endfor%}
+                {%endif%}
+                </table>
+        </div>
+    
 </body>
 </html>
