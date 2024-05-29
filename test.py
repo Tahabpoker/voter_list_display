@@ -9,9 +9,9 @@ match choice:
         first_name = input("Enter first name: ")
         middle_name = input("Enter middle name: ")
         last_name = input("Enter last name: ")
-        if first_name and last_name and age:
+        if first_name and middle_name and last_name:
             # Search in file
-            print(df.loc[(df["First Name"] == first_name) & (df["Middle Name"] == middle_name) & (df["Last Name"] == last_name)].to_string())
+            print(df.loc[(df["First  Name"] == first_name) & (df["Middle Name"] == middle_name) & (df["Last name"] == last_name)].to_string())
         else:
             print("Fields missing")
             sys.exit(1)
