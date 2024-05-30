@@ -73,10 +73,10 @@ def index():
     if request.method == 'POST':
         
         # user submitted form
-        first_name = request.form.get("first_name")
-        middle_name = request.form.get("middle_name")
-        last_name = request.form.get("last_name")
-        epic_no = request.form.get("epic_no")
+        first_name = request.form.get("first_name").upper()
+        middle_name = request.form.get("middle_name").upper()
+        last_name = request.form.get("last_name").upper()
+        epic_no = request.form.get("epic_no").upper()
         phone_number = request.form.get("phone_number")
 
 
@@ -86,13 +86,18 @@ def index():
         print(epic_no)
         print(phone_number)
 
-        new_data = {
+        new_data_with_name = {
             'first_name': first_name,
-            'last_name': middle_name,
-            'age': last_name,
+            'mddle_name': middle_name,
+            'last_name': last_name,
             'phone_number' : phone_number
         }
-        
+        new_data_without_name = {
+            'first_name': epic_no,
+            'mddle_name': "none",
+            'last_name': "none",
+            'phone_number' : phone_number
+        }
 
 # Append the new data to the DataFrame
         if phone_number:
@@ -106,20 +111,19 @@ def index():
                     
                 else :
                     print("we have been here in else 1 ")
-                    save_phone_number_in_excel(new_data=new_data, df = df1)
+                    save_phone_number_in_excel(new_data=new_data_without_name, df = df1)
                     return search_by_epic_no(epic_number=epic_no, df=df)
                     
 
             else :
                 print("we have been here in else 2 ")
-                save_phone_number_in_excel(new_data=new_data, df = df1) 
+                save_phone_number_in_excel(new_data=new_data_with_name, df = df1) 
                 return search_by_name(first_name=first_name, middle_name1=middle_name, last_name=last_name, df=df) 
         else : 
             error_message = "enter Phone Number"
             return render_template("index.html",error_message = error_message)
         
-            
-    
+      
 
 
              

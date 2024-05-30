@@ -1,78 +1,111 @@
- 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Data from Excel</title>
-        <style>
-            .form-row {
-                display: flex;
-                justify-content: space-between;
-            }
-    
-            .form-group {
-                width: 48%; /* Adjust width as needed */
-                margin-bottom: 20px; /* Adjust spacing as needed */
-            }
-            .container {
-                max-width: 600px;
-                margin: 0 auto;
-                padding: 20px;
-                background-color: #ffffff;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                border-radius: 4px;
-            }
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f9f9f9;
-                margin: 0;
-                padding: 0;
-            }
-            h1 {
-                font-size: 24px;
-                color: #333;
-                margin-bottom: 20px;
-            }
-            label {
-                font-size: 16px;
-                color: #666;
-                display: block;
-                margin-bottom: 10px;
-            }
-            input[type="text"],
-            select {
-                width: 100%;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                font-size: 14px;
-                color: #333;
-                margin-bottom: 20px;
-            }
-            input[type="submit"] {
-                background-color: #007bff;
-                color: #ffffff;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 14px;
-            }
-            input[type="submit"]:hover {
-                background-color: #0056b3;
-            }
-            p {
-                font-size: 20px;
-                color: #030303;
-                margin: 0;
-            }
-           
-        </style>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Data from Excel</title>
+    <style>
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-group {
+            width: 48%;
+            /* Adjust width as needed */
+            margin-bottom: 20px;
+            /* Adjust spacing as needed */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #666;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 20px;
+            color: #000000;
+            margin: 0;
+        }
+        .p1 {
+            font-size: 20px;
+            color: #000000;
+            margin: 0;
+        }
+
+        /* Style the header */
+        .header {
+            padding: 10px 16px;
+            color: #f1f1f1;
+        }
+
+        /* The sticky class is added to the header with JS when it reaches its scroll position */
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%
+        }
+    </style>
+</head>
+
 <body>
+    <div class="header">
+        <img src="./static/header.jpg" alt="header-img" srcset="">
+    </div>
     <div class="container">
-        <img src="./" alt="" srcset="">
         <h1>Data from Excel</h1>
         <form action="/" method="post">
             <div class="form-row">
@@ -90,7 +123,7 @@
                     <label for="last_name">Enter last name:</label>
                     <input type="text" id="last_name" name="last_name">
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="epic_no">Enter Epic No:</label>
                     <input type="text" id="epic_no" name="epic_no">
                 </div>
@@ -101,23 +134,50 @@
                     <input type="text" id="phone_number" name="phone_number" required>
                 </div>
             </div>
+            <button type="submit" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
             <input type="submit" value="Search">
         </form>
         {% if error_message %}
-            <p style="color: red;">{{ error_message }}</p>
+        <p style="color: red;">{{ error_message }}</p>
         {% endif %}
     </div>
-    <div class="container">
-        {{cell1_value}}  <br> 
-        {{cell2_value}}  <br>
-        {{cell3_value}}  <br>
-        {{cell4_value}}  <br>
-        {{cell5_value}}  <br>
-        {{cell6_value}}  <br>
-        {{cell7_value}}  <br>
-        {{cell8_value}}  <br>
+    <div style="color:white ;">
+       {{cell1_value}} <br>
+       {{cell2_value}} <br>
+       {{cell3_value}} <br>
+       {{cell4_value}} <br>
+       {{cell5_value}} <br>
+       {{cell6_value}} <br>
+       {{cell7_value}} <br>
+       {{cell8_value}} <br>
     </div>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>  Name  {{cell1_value}} {{cell2_value}} {{cell3_value}}<br></p>
+                <p>  School  {{cell4_value}} <br> </p>
+                <p>  Age  {{cell5_value}} <br> </p>
+                <p>  Epic No  {{cell6_value}} <br> </p>
+                <p>  Booth Number  {{cell7_value}} <br> </p>
+                <p>  Booth Address  {{cell8_value}} <br> </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
 </body>
+
 </html>
 
 
@@ -236,5 +296,3 @@
     
 </body>
 </html> -->
-
-
