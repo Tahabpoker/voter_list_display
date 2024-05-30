@@ -27,7 +27,7 @@ def search_by_epic_no(epic_number, df):
             
             print(f"Name: {cell1_value} {cell2_value} {cell3_value}\nSchool: {cell4_value}\nAge: {cell5_value}\nEpic No: {cell6_value}\nBooth No: {cell7_value}\nAddress: {cell8_value}")
 
-            return render_template("index.html", cell1_value=cell1_value, cell2_value=cell2_value, cell3_value=cell3_value, cell4_value=cell4_value, cell5_value=cell5_value, cell6_value=cell6_value, cell7_value=cell7_value, cell8_value=cell8_value)
+            return render_template("modal.html", cell1_value=cell1_value, cell2_value=cell2_value, cell3_value=cell3_value, cell4_value=cell4_value, cell5_value=cell5_value, cell6_value=cell6_value, cell7_value=cell7_value, cell8_value=cell8_value)
         else :
             error_message = "Value '{}' not found in the data PLEASE ENTER VALID EPIC NUMBER!!!".format(epic_number)
             return render_template('index.html', error_message=error_message)
@@ -53,7 +53,7 @@ def search_by_name(first_name, middle_name1, last_name, df):
         
         print(f"Name: {cell1_value} {cell2_value} {cell3_value}\nSchool: {cell4_value}\nAge: {cell5_value}\nEpic No: {cell6_value}\nBooth No: {cell7_value}\nAddress: {cell8_value}")
 
-        return render_template("index.html", cell1_value=cell1_value, cell2_value=cell2_value, cell3_value=cell3_value, cell4_value=cell4_value, cell5_value=cell5_value, cell6_value=cell6_value, cell7_value=cell7_value, cell8_value=cell8_value)
+        return render_template("modal.html", cell1_value=cell1_value, cell2_value=cell2_value, cell3_value=cell3_value, cell4_value=cell4_value, cell5_value=cell5_value, cell6_value=cell6_value, cell7_value=cell7_value, cell8_value=cell8_value)
     else :
         error_message = "Value '{}' '{}' '{}' not found in the data PLEASE ENTER VALID NAME!!!".format(first_name, middle_name1, last_name)
         return render_template('index.html', error_message=error_message)
@@ -123,17 +123,6 @@ def index():
             error_message = "enter Phone Number"
             return render_template("index.html",error_message = error_message)
         
-      
-
-
-             
-            # if not len(tables): 
-            #     error_message = "Value '{}' not found in the specified column '{}'".format(data_name, data_column)
-            #     return render_template("index.html", error_message = error_message)
-
-            # return render_template("index.html", tables = [tables.to_html(classes='data', header="true")])
-   
-
     return render_template("index.html")
 
 if __name__ == "__main__":

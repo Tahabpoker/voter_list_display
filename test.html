@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: url('./static/background.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins';
+        }
+        .banner h1{
+            font-size: 40px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .banner p{
+            font-size: 20px;
+        }
+        .banner p b{
+            font-weight: 800;
+        }
+        .banner{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .banner-detail{
+            margin: 70px auto;
+            width: 600px;
+            padding: 50px;
+            box-shadow: 10px;
+            background-color: white;
+        }
+        .buttons-section button{
+            margin: 0 10px;
+            background-color: rgb(108, 108, 243);
+            width: 150px;
+            height: 40px;
+            font-size: 16px;
+            border-radius: 30px;
+            border: none;
+            color: white;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .buttons-section button:hover{
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="banner">
+            <div class="banner-detail">
+                <h1>Report</h1>
+                <p> <b> Name </b>  {{cell1_value}} {{cell2_value}} {{cell3_value}}<br></p>
+                <p> <b> School </b> {{cell4_value}} <br> </p>
+                <p> <b> Age </b> {{cell5_value}} <br> </p>
+                <p> <b> Epic No </b> {{cell6_value}} <br> </p>
+                <p> <b> Booth Number </b> {{cell7_value}} <br> </p>
+                <p> <b> Booth Address </b> {{cell8_value}} <br> </p>
+            </div>
+            <div class="buttons-section">
+                <button onclick="saveAsImage()">Save</button>
+                <button onclick="backToHome()">Back</button>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        function saveAsImage() {
+            // Get the div element to capture
+            const bannarDiv = document.querySelector('.banner-detail');
+
+            // Use html2canvas to capture the div as an image
+            html2canvas(bannarDiv).then(canvas => {
+                // Convert the canvas to a data URL
+                const dataURL = canvas.toDataURL('image/png');
+
+                // Create a link to download the image
+                const downloadLink = document.createElement('a');
+                downloadLink.href = dataURL;
+                downloadLink.download = 'report.png';
+                downloadLink.click();
+            });
+        }
+        function backToHome(){
+            window.location.href = "/"
+        }
+    </script>
+</body>
+</html>
