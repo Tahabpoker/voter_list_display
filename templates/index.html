@@ -14,11 +14,12 @@
             /* justify-content: space-between; */
         }
 
-        form-labels{
+        .form-labels{
             width: 40%;
         }
         .form-input{
-            width: 60%;
+            width: 300px;
+            margin-left: 40px;
         }
         .form-group {
             display: flex;
@@ -66,7 +67,7 @@
             margin-bottom: 10px;
         }
 
-        input[type="text"],
+        input[type="text"], input[type="tel"],
         select {
             width: 75%;
             padding: 10px;
@@ -97,9 +98,17 @@
             margin: 0;
         }
         .p1 {
+            font-size: 28px;
+            color: red;
+            align-self: center;
+            margin-top: 80px;
+            justify-content: center;
+        }
+        .p2 {
             font-size: 20px;
             color: #000000;
-            margin: 0;
+            align-self: center;
+            margin-top: 100px;
         }
 
         /* Style the header */
@@ -110,15 +119,46 @@
         }
         img{
             width: 100%;
+            height: 150px;
         }
         .card{
             margin-top: 50px;
             background-color: white;
             padding: 30px;
-            min-width: 600px;
+            width: 500px;
             height: auto;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             z-index: 5;
+            border-radius: 5%;
+            border: 1px solid black;
+        }
+        .card1{
+            margin-top: 50px;
+            background-color: white;
+            padding: 30px;
+            height: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 5;
+            border-radius: 5%;
+            border: 1px solid black;
+        }
+        #middlebox {
+            float: left;
+        }
+        #leftbox {
+            float: left;
+            width: 25%;
+            margin-right: 20px;
+        }
+        #rightbox {
+            float: right;
+            width: 25%;
+            margin-left: 20px;
+        }
+        .btn{
+            display:flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* The sticky class is added to the header with JS when it reaches its scroll position */
@@ -134,9 +174,15 @@
         <div class="form-header">
             <h2></h2>
         </div>
-        <div class="card">
-
+        <div class="card1" id="leftbox"> <p>तुमचे तपशील शोधण्यासाठी पायऱ्या<br>
+            1: तुमचे पूर्ण नाव आणि तुमचा फोन नंबर भरा <br>
+            2: "शोध" बटणावर क्लिक करा<br>
+            3: एक नवीन पृष्ठ उघडेल <br>
+            !! आपण "सेव्ह" बटण वापरून आपले तपशील डाउनलोड करू शकता</p> </div>
+        <div class="card" id="middlebox">
+            <p style="margin-bottom: 10px;">please fill in the details for your voting slip</p>
             <form action="/" method="post">
+                
                 <div class="form-row">
                     <div class="form-group">
                         <div class="form-labels">
@@ -170,30 +216,25 @@
                 <div class="form-row">
                     <div class="form-group">
                         <div class="form-labels">
-                            <label for="epic_no">Enter Epic No:</label>
-                        </div>
-                        <div class="form-input">
-                            <input type="text" id="epic_no" name="epic_no" placeholder="Enter Epic No.">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <div class="form-labels">
                             <label for="phone_number">Enter Phone Number:</label>
                         </div>
                         <div class="form-input">
-                            <input type="text" id="phone_number" name="phone_number" placeholder="Enter Phone Number"
+                            <input type="tel" id="phone_number" name="phone_number" placeholder="Enter Phone Number" pattern="[0-9]{10}"
                             required>
                         </div>
                         </div>
                     </div>
-                    <input type="submit" value="Search">
+                    <div class = "btn">
+                        <input type="submit" value="Search">
+                        </div>
             </form>
 
             {% if error_message %}
             <p style="color: red;">{{ error_message }}</p>
             {% endif %}
+        </div>
+        <div class="card1" id="rightbox">
+            <p class="p1">!!!!!कृपया 26 जून रोजी मतदान करा!!!!!</p>
         </div>
     </div>
     </body>

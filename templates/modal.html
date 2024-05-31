@@ -57,6 +57,10 @@
         .buttons-section button:hover{
             transform: scale(1.05);
         }
+        img {
+			width: 100%;
+			height: 100%;
+		}
     </style>
 </head>
 
@@ -64,7 +68,10 @@
     <main>
         <div class="banner">
             <div class="banner-detail">
-                <h1>Voter's Slip</h1>
+                
+                <img src="./static/header.jpg" alt="header-img" srcset="">
+
+                <!-- <h1>Voter's Slip</h1> -->
                 <p> <b> Name </b>  {{cell1_value}} {{cell2_value}} {{cell3_value}}<br></p>
                 <p> <b> School </b> {{cell4_value}} <br> </p>
                 <p> <b> Age </b> {{cell5_value}} <br> </p>
