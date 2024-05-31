@@ -64,7 +64,7 @@ def index():
 
         new_data_with_name = {
             'first_name': first_name,
-            'mddle_name': middle_name,
+            'middle_name': middle_name,
             'last_name': last_name,
             'phone_number' : phone_number
         }
